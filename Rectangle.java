@@ -12,7 +12,7 @@ public class Rectangle extends Shape {
     /**
      * @super Calls the parent object and creates a shape with 4 sides
      */
-    public Rectangle(Coordinates coord, double width, double length) {
+    public Rectangle(Coordinates coord, double length, double width) {
         super(4, coord);
         this.width = width;
         this.length = length;
