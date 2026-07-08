@@ -1,70 +1,104 @@
 package Final_Assessment;
 
-public abstract class Shape extends Coordinates {
-    // Shape class now has all the methods in the Coordinates class
+/**
+ * Abstract base class representing a general geometrical shape.
+ * A Shape has a position (a Coordinates object) and a number of sides.
+ * It has no area or perimeter of its own - those are defined by
+ * whatever concrete shape (Rectangle, Square, Circle, Triangle)
+ * extends this class.
+ */
+
+public abstract class Shape {
+
+    // Shape HAS a Coordinates object (composition), it does not extend it.
+    private Coordinates position;
     private int sides;
-    private int x_position;
-    private int y_position;
 
-    // Constructor to input shape details
-    Shape(int num_sides, int x_position, int y_position) {
-        this.sides = num_sides;
-        this.x_position = x_position;
-        this.y_position = y_position;
+    /**
+     * Creates a Shape with the given number of sides at the given position.
+     *
+     * noOfSides - the number of sides the shape has
+     * coord - the Coordinates object representing the shape's position
+     */
+    public Shape(int noOfSides, Coordinates coord) {
+        this.sides = noOfSides;
+        this.position = coord;
     }
 
-    // getCoordinates methods - To display current x and y values
-    int getX() {
-        return this.x_position;
+    /**
+     * return the Coordinates object representing this shape's position
+     */
+    public Coordinates getCoordinates() {
+        return this.position;
     }
 
-    int getY() {
-        return this.y_position;
-    }
-
-    // getSides() method - Displaying number of sides for the shape
-    int getSides() {
+    /**
+     * return the number of sides this shape has
+     */
+    public int getSides() {
         return this.sides;
     }
 
-    // setCoords methos - Changing the x and y values
-    void setX(int new_x_coord) {
-        this.x_position = new_x_coord;
+    /**
+     * Replaces this shape's position with a new Coordinates object.
+     *
+     * newCoord - the new position for this shape
+     */
+    public void setCoordinates(Coordinates newCoord) {
+        this.position = newCoord;
     }
 
-    void setY(int new_y_coord) {
-        this.y_position = new_y_coord;
+    /**
+     * Moves this shape by dx and dy.
+     * Delegates to the Coordinates object's own translate() method,
+     * since Shape holds a Coordinates rather than raw x/y values.
+     * Triangle overrides this method, since it must move three
+     * vertices rather than just one position.
+     *
+     * dx - the amount to move in the x direction
+     * dy - the amount to move in the y direction
+     */
+    public void translate(int dx, int dy) {
+        this.position.translate(dx, dy);
     }
 
-    // Translate method - Changing the values in x and y by dx and dy
-    void translate(int dx, int dy) {
-        this.x_position += dx; // Updating current x value in the object by dx
-        this.y_position += dy; // Updating current y value in the object by dy
+    /**
+     * Scales this shape's position by the given factor.
+     * Every subclass overrides this method as well, because scaling a
+     * shape also means scaling its own attributes (radius, width,
+     * length, side, or extra vertices) - not just its position.
+     *
+     * factor - the value to multiply or divide by
+     * sign - true to multiply (grow), false to divide (shrink)
+     */
+    public void scale(int factor, boolean sign) {
+        this.position.scale(factor, sign);
     }
 
-    // Scale method - Chnaging size based on factor
-    void scale(int factor, boolean sign) {
-        // True = multiplication
-        // False = division
+    /**
+     * Calculates the area of the shape.
+     * Must be implemented by every subclass, since a general
+     * Shape has no defined area of its own.
+     *
+     * return the area of the shape
+     */
+    public abstract double getArea();
 
-        if (sign == true) { // Increases size
-            this.x_position *= factor;
-            this.y_position *= factor;
-        } else { // Decreases size
-            this.x_position /= factor;
-            this.y_position /= factor;
-        }
-    }
+    /**
+     * Calculates the perimeter of the shape.
+     * Must be implemented by every subclass, since a general
+     * Shape has no defined perimeter of its own.
+     *
+     * return the perimeter of the shape
+     */
+    public abstract double getPerimeter();
 
-    // getArea() abstract method - Will be overwritten by children classes to find
-    // their areas
-    abstract double getArea();
-
-    // getPerimeter() abstract method - Will be overwritten by children classes to
-    // find their Perimeters
-    abstract double getPerimeter();
-
-    // display() abstact method - Will be used by children to display their coord
-    // values
-    abstract String display();
+    /**
+     * Returns a string describing the shape: its name, its
+     * attributes, and its area and perimeter.
+     * Must be implemented by every subclass.
+     *
+     * return a formatted description of the shape
+     */
+    public abstract String display();
 }
