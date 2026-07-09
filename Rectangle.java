@@ -23,7 +23,7 @@ public class Rectangle extends Shape {
     public double getLength() { // Getting length
         return this.length;
     }
-
+    //Displaying width
     public double getWidth() { // Getting width
         return this.width;
     }
@@ -32,7 +32,7 @@ public class Rectangle extends Shape {
     public void setLength(double length) {
         this.length = length;
     }
-
+    //Changing width values
     public void setWidth(double width) {
         this.width = width;
     }
@@ -60,7 +60,7 @@ public class Rectangle extends Shape {
                 + ", Area = " + getArea()
                 + ", Perimeter = " + getPerimeter();
     }
-
+    //Scaling the Shape based on factor and sign
     @Override
     public void scale(int factor, boolean sign) {
         super.scale(factor, sign); // scales the position via Shape -> Coordinates
