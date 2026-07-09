@@ -3,9 +3,9 @@ package Final_Assessment;
 public class Circle extends Shape {
     // Radius is the only unique field that the circle class has
     private double radius;
-
+    //Constructor for creating an new Circle object
     public Circle(Coordinates coord, double radius) {
-        super(1, coord); // a circle technically only has 1 "side"
+        super(1, coord); // Assigning the circle 1 side
         this.radius = radius;
     }
 
