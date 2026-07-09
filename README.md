@@ -17,3 +17,14 @@ demonstrates:
   knowing the concrete subclass)
 - Defensive programming (bounds-checking on list positions so invalid input
   does not crash the program)
+
+## Class structure
+ 
+| Class | Purpose |
+|---|---|
+| **Coordinates** | Represents an (x, y) point; provides distance, translate, scale, display |
+| **Shape** (abstract) | Base class for all shapes; holds a position and side count; declares `getArea()`, `getPerimeter()`, `display()` as abstract |
+| **Rectangle, Square, Circle** | Concrete shapes; each overrides `getArea()`, `getPerimeter()`, `scale()`, `display()` |
+| **Triangle** | Concrete shape with three vertices; overrides `translate()` and `scale()` in addition to the above, since it must move/scale all three points |
+| **ShapeList** | Stores shapes in an `ArrayList<Shape>`; provides add/remove/get/area/perimeter/translate/scale/display operations, with bounds-checking on position-based methods |
+| **ShapeManagement** | Console entry point; runs the menu loop and calls the appropriate `ShapeList` method for each option |
