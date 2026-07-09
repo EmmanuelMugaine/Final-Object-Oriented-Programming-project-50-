@@ -21,20 +21,20 @@ public class Triangle extends Shape {
         this.vertex3 = vertex3;
     }
     // Getters to display vertex2 and vertex3 coordinates
-
+    //Displaying vertex2 corrdinates
     public Coordinates getVertex2() {
         return this.vertex2;
     }
-
+    //Displaying vertex3 coordinates
     public Coordinates getVertex3() {
         return this.vertex3;
     }
     // Setters to change vertex 2 and vertex3 coordinates
-
+    //Changing vertex2 coordinates
     public void setVertex2(Coordinates v) {
         this.vertex2 = v;
     }
-
+    //Changing vertex3 coordinates
     public void setVertex3(Coordinates v) {
         this.vertex3 = v;
     }
