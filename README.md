@@ -18,6 +18,20 @@ demonstrates:
 - Defensive programming (bounds-checking on list positions so invalid input
   does not crash the program)
 
+ ### Requirements
+
+- Java JDK 17 or later
+- Command line or IDE (IntelliJ IDEA, Eclipse or VS Code)
+## Features
+
+- Add Rectangle, Square, Circle and Triangle objects
+- Display information about individual or all shapes
+- Calculate area and perimeter
+- Translate all shapes by a specified distance
+- Scale all shapes by multiplication or division
+- Remove shapes by list position
+- Input validation and graceful error handling
+
 ## Class structure
  
 | Class | Purpose |
