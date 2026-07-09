@@ -198,8 +198,8 @@ public class ShapeManagement {
                      */
                     double area = shapeList.area(apPos);
                     if (area != -1) {
-                        System.out.println("Area = " + area);
-                        System.out.println("Perimeter = " + shapeList.perimeter(apPos));
+                        System.out.printf("Area = %.3f%n", area);
+                        System.out.printf("Perimeter = %.3f%n", shapeList.perimeter(apPos));
                     }
                     break;
 
@@ -228,7 +228,7 @@ public class ShapeManagement {
 
                 case 7: // Scale all shapes
                     System.out.println("Enter factor (int) and sign (true=multiply, false=divide): ");
-                    //Error handling for Factor
+                    // Error handling for Factor
                     System.out.print("Enter the factor: ");
                     int factor = 0;
                     try { // Checking if factor = 0, to prevent zerodivisor error
@@ -241,10 +241,10 @@ public class ShapeManagement {
                     } catch (InputMismatchException e) {
                         System.out.println("Only enter Integer values" + e);
                     }
-                    //Error handling for Sign
+                    // Error handling for Sign
                     System.out.print("Enter the sign: ");
-                    boolean sign = true;    //initialising sign with a placeholder value
-                    try {   //Checking if only a boolean value is entered in the field
+                    boolean sign = true; // initialising sign with a placeholder value
+                    try { // Checking if only a boolean value is entered in the field
                         sign = scanner.nextBoolean();
                         if (sign != true && sign != false) {
                             System.out.println("Only enter true or false for sign");
@@ -253,9 +253,9 @@ public class ShapeManagement {
                     } catch (InputMismatchException e) {
                         System.out.println("Only enter Boolean values for sign" + e);
                     }
-                    //If fields entered are correct, all the shapes are scaled
+                    // If fields entered are correct, all the shapes are scaled
                     shapeList.scale(factor, sign);
-                    System.out.println("All shapes scaled.");   //Success message
+                    System.out.println("All shapes scaled."); // Success message
                     break;
 
                 // Failsafe - Stops the programme from execuing again
