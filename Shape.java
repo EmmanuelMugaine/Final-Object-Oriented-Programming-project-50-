@@ -1,7 +1,7 @@
 package Final_Assessment;
 
 /**
- * Abstract base class representing a general geometrical shape.
+ * Abstract base class representing a general shape.
  * A Shape has a position (a Coordinates object) and a number of sides.
  * It has no area or perimeter of its own - those are defined by
  * whatever concrete shape (Rectangle, Square, Circle, Triangle)
