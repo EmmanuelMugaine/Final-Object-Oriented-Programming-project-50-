@@ -67,7 +67,7 @@ public class Coordinates {
             this.y /= factor;
         }
     }
-
+    //Displaying Coordinate information
     public String display() {
         return "X = " + getX() + ", Y = " + getY();
     }
