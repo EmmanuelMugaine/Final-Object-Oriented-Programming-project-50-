@@ -5,6 +5,7 @@ package Final_Assessment;
  * It is a concrete class, whose area and perimeter can be found
  */
 public class Rectangle extends Shape {
+    // Length and width are the only unique variables a rectangle has
     private double length;
     private double width;
 
@@ -19,11 +20,11 @@ public class Rectangle extends Shape {
     }
 
     // Getters to display length and width values
-    public double getLength() {
+    public double getLength() { // Getting length
         return this.length;
     }
 
-    public double getWidth() {
+    public double getWidth() { // Getting width
         return this.width;
     }
 
